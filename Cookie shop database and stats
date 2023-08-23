@@ -1,0 +1,36 @@
+--Create a cookie store database
+create table pats_cookie_shop (id integer primary key, name text, sweetness text, quanity integer, price integer);
+insert into pats_cookie_shop values
+(1, "chocolate chip", "sweet", 34, 2),
+(2, "macadamian", "sweet", 27, 2),
+(3, "strawberry shortcake", "super sweet", 22, 4),
+(4, "chocolate mint", "barely sweet", 12, 3),
+(5, "mad chocolate", "super sweet", 7, 5),
+(6, "raspberry", "middle", 39, 3),
+(7, "sugar", "super sweet", 2, 3),
+(8, "peanut butter", "sweet", 7, 4),
+(9, "marshmellow", "sweet", 19, 5),
+(10, "frenchie", "sweet", 21, 4),
+(11, "oatmeal", "middle", 28, 3),
+(12, "oreo", "super sweet", 11, 5),
+(13, "chocolate peanut", "super sweet", 3, 5),
+(14, "salted caramel", "sweet", 13, 4),
+(15, "cinnamon roll", "super sweet", 1, 5);
+
+--Show all that is contained inside pats cookie shop
+select * from pats_cookie_shop;
+
+--Show all cookies sold in shop and in order by price
+select * from pats_cookie_shop where name order by price;
+
+--Show all cookies sold in pats cookie shop that cost more than $5 and in order
+select * from pats_cookie_shop where price >=4 order by price;
+
+--Show total quantity of cookies in stock at pats cookie shop
+select sum (quanity) from pats_cookie_shop;
+
+--Show me the quantity of how many cookies are at pats cookie shop sorted by the price 
+select price, sum (quanity) from pats_cookie_shop group by price;
+
+--What is the cheapest cookie sold at pats cookie shop
+select min (price) from pats_cookie_shop
